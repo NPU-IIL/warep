@@ -4,17 +4,12 @@
 ## 大纲
 
 * Preprocess
-  * bandpass_filter
-  * notch_filter
-  * ica
 * FeatureExtraction
   * time domain
   * frequency domain
-    * fast_fourier_fransform
-    * differential_entropy
   * space domain
 * DeepLearningModel
-* Utils
+* PlotUtils
 
 ## 编写规范
 
@@ -57,8 +52,23 @@ band：频带，例如[1,4,8,13,31,70],表示5个频带
         参数介绍，包括数据类型
     Returns:
         返回值说明，包括数据类型
+    Examples：
     """
 ```
-
-
-
+例如：
+```
+def ica_eeg(data,fs):
+    """
+    Introduction:
+        对eeg信号进行ICA去伪迹
+    Args:
+        data:channels * samples EEG data
+        fs: sampling rates, Default: 250
+    Returns:
+        icaed_data:ICA处理过的EEG数据 channels * samples
+    Examples：
+    	>>> inputs = torch.randn(8, 300)
+    	>>> fs = 250
+    	>>> icaed_data = ica_eeg(inputs,fs)
+    """
+```
